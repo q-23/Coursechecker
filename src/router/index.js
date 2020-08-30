@@ -16,8 +16,9 @@ Vue.use(VueRouter)
     path: '/favourite',
     name: 'Favourite Currencies',
     component: FavouriteCurrenciesView
-  }
-]
+  },
+    { path: '*', redirect: '/' }
+  ]
 
 const router = new VueRouter({
   routes

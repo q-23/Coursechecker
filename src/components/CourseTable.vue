@@ -5,7 +5,7 @@
   >
     <v-data-table
         :headers="headers"
-        :items="this.currenciesCourses"
+        :items="courses"
         :items-per-page="5"
     >
       <template v-slot:item="row">
@@ -14,7 +14,10 @@
           <td>{{row.item.currency}}</td>
           <td>{{row.item.mid}}</td>
           <td>
-            <v-btn class="mx-6" fab dark small color="pink" @click="addToFavourites(row.item.code)">
+            <v-btn class="mx-10" fab dark small color="pink" @click="removeFromFavourites(row.item.code)" v-if="favourite_courses">
+              <v-icon dark>mdi-heart-remove</v-icon>
+            </v-btn>
+            <v-btn class="mx-6" fab dark small color="pink" @click="addToFavourites(row.item.code)" v-else>
               <v-icon dark>mdi-heart</v-icon>
             </v-btn>
           </td>
@@ -35,18 +38,20 @@ export default {
         },
         { text: 'Currency name', value: 'currency' },
         { text: 'Course to PLN', value: 'mid' },
-        { text: 'Add to favourites', value: 'fav' }
+        { text: this.favourite_courses ? 'Remove from favourites' : 'Add to favourites', value: 'action', sortable: false }
       ]
     }
   },
-  computed: {
-    currenciesCourses() {
-      return this.$store.state.currenciesCourses;
-    }
+  props: {
+    favourite_courses: Boolean,
+    courses: Array
   },
   methods: {
     addToFavourites(code) {
       this.$store.dispatch('addFavouriteCurrency', code)
+    },
+    removeFromFavourites(code) {
+      this.$store.dispatch('removeFavouriteCurrency', code)
     }
   }
 }

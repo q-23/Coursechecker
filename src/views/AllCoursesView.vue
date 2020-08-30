@@ -4,7 +4,7 @@
       outlined
   >
     <blockquote class="blockquote">Current courses:</blockquote>
-    <CourseTable/>
+    <CourseTable :courses="this.currenciesCourses"/>
   </v-card>
 </template>
 
@@ -14,6 +14,11 @@ import CourseTable from "@/components/CourseTable";
 export default {
   components: {
     CourseTable
+  },
+  computed: {
+    currenciesCourses() {
+      return this.$store.state.currenciesCourses;
+    }
   }
 }
 </script>

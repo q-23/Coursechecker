@@ -20,6 +20,13 @@ describe('[ACTIONS]', () => {
 		expect(state.favouriteCurrencies.includes('B')).toBeTruthy()
 	});
 
+	it("Shouldn't add same favourite currency more than once",  () => {
+		mutations.addFavouriteCurrency(state, 'A')
+		mutations.addFavouriteCurrency(state, 'A')
+		expect(state.favouriteCurrencies.length).toBe(1)
+
+	});
+
 	it('Should remove favourite currencies',  () => {
 		state.favouriteCurrencies = ['A', 'B', 'C', 'D']
 
