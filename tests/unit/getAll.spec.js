@@ -5,12 +5,10 @@ describe('[GET ALL]', () => {
 	it('Should fetch fetch all tables', async () => {
 		const resA = await get('A');
 		const resB = await get('B');
-		const resC = await get('C');
 
 		const [dataA] = await resA.json();
 		const [dataB] = await resB.json();
-		const [dataC] = await resC.json();
-		const allRates = [...dataA.rates, ...dataB.rates, ...dataC.rates];
+		const allRates = [...dataA.rates, ...dataB.rates];
 
 		const resGetAll = await getAll();
 

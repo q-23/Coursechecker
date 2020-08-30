@@ -2,7 +2,7 @@
 
 exports[`[NAVBAR] Should render component 1`] = `
 <div>
-  <v-app-bar-stub color="deep-purple accent-4" dark="true" tag="header" dense="true" extensionheight="48" src="" value="true">
+  <v-app-bar-stub color="deep-purple accent-4" dark="true" tag="header" dense="true" extensionheight="48" src="" value="true" class="mb-16">
     <v-app-bar-nav-icon-stub></v-app-bar-nav-icon-stub>
     <v-toolbar-title-stub>NBP Course Check</v-toolbar-title-stub>
     <v-spacer-stub></v-spacer-stub>

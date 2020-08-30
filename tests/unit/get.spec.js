@@ -15,12 +15,6 @@ describe('[GET]', () => {
 		expect(res.status).toBe(200)
 	});
 
-	it('Should fetch table C', async () => {
-		const res = await get('C');
-		const result = await res.json();
-		expect(result[0].table).toBe('C')
-		expect(res.status).toBe(200)
-	});
 
 	it('Should return courses', async () => {
 		const res = await get();
