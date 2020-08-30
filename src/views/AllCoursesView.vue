@@ -4,7 +4,7 @@
       outlined
   >
     <blockquote class="blockquote">Current courses:</blockquote>
-    <CourseTable :courses="this.currenciesCourses"/>
+    <CourseTable :courses="currenciesCourses"/>
   </v-card>
 </template>
 

@@ -1,4 +1,4 @@
-# vue
+# NBP Course Check
 
 ## Project setup
 ```

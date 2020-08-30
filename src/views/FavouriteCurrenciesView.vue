@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import CourseTable from "@/components/CourseTable";
 import Modal from "@/components/Modal";
 
@@ -56,11 +57,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["removeAllFavouriteCurrencies", "removeFavouriteCurrency"]),
     handleRemove() {
       if (this.isRemoveAll) {
-        this.$store.dispatch('removeAllFavouriteCurrencies');
+        this.removeAllFavouriteCurrencies();
       } else {
-        this.$store.dispatch('removeFavouriteCurrency', this.codeToDelete);
+        this.removeFavouriteCurrency(this.codeToDelete);
       }
       this.closeModal();
     },
@@ -84,8 +86,10 @@ export default {
       return this.$store.state.favouriteCurrencies;
     },
     coursesToDisplay() {
-      return this.currenciesCourses.filter(course => this.favouriteCourses.includes(course.code))
-    }
-  }
-}
+      return this.currenciesCourses.filter((course) =>
+        this.favouriteCourses.includes(course.code)
+      );
+    },
+  },
+};
 </script>
