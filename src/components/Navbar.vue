@@ -2,9 +2,9 @@
   <div>
     <v-app-bar
         color="deep-purple accent-4"
+        class="mb-16"
         dense
         dark
-        class="mb-16"
     >
       <v-toolbar-title>NBP Course Check</v-toolbar-title>
       <v-spacer/>
@@ -21,7 +21,3 @@
     </v-app-bar>
   </div>
 </template>
-
-<style scoped>
-
-</style>

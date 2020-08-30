@@ -10,6 +10,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import getAll from "@/functions/getAll";
+const localStorageName = 'favouriteCurrencies';
 export default {
   name: 'App',
   components: {
@@ -27,7 +28,20 @@ export default {
     }
   },
   mounted() {
-    this.fetchCurrenciesCourses()
+    this.fetchCurrenciesCourses();
+    const savedFavouriteCurrencies = JSON.parse(localStorage.getItem(localStorageName));
+    console.log(savedFavouriteCurrencies, 'saved')
+    this.$store.dispatch('setSavedFavouriteCurrencies', savedFavouriteCurrencies);
+  },
+  computed: {
+    favouriteCurrencies () {
+      return this.$store.state.favouriteCurrencies
+    }
+  },
+  watch: {
+    favouriteCurrencies (favourites) {
+      localStorage.setItem(localStorageName, JSON.stringify(favourites));
+    }
   }
 };
 </script>

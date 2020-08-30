@@ -10,7 +10,7 @@
           }}
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
+          <v-spacer/>
           <v-btn color="green darken-1" text @click="handleCloseModal">Cancel</v-btn>
           <v-btn color="red darken-1" text @click="handleRemove">Delete</v-btn>
         </v-card-actions>

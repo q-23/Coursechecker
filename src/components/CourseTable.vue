@@ -4,9 +4,9 @@
       outlined
   >
     <v-data-table
+        :items-per-page="5"
         :headers="headers"
         :items="courses"
-        :items-per-page="5"
     >
       <template v-slot:item="row">
         <tr>
@@ -14,10 +14,26 @@
           <td>{{row.item.currency}}</td>
           <td>{{row.item.mid}}</td>
           <td>
-            <v-btn class="mx-10" fab dark small color="red" @click="deleteFromFavourites(row.item.code)" v-if="favourite_courses">
+            <v-btn
+                @click="deleteFromFavourites(row.item.code)"
+                v-if="favourite_courses"
+                class="mx-10"
+                color="red"
+                small
+                dark
+                fab
+            >
               <v-icon dark>mdi-heart-remove</v-icon>
             </v-btn>
-            <v-btn class="mx-6" fab dark small color="green" @click="addToFavourites(row.item.code)" v-else>
+            <v-btn
+                @click="addToFavourites(row.item.code)"
+                color="green"
+                class="mx-6"
+                v-else
+                small
+                dark
+                fab
+            >
               <v-icon dark>mdi-heart</v-icon>
             </v-btn>
           </td>
@@ -56,7 +72,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

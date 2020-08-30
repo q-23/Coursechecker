@@ -11,6 +11,9 @@ const actions = {
 	removeAllFavouriteCurrencies({commit}) {
 		commit('removeAllFavouriteCurrencies')
 	},
+	setSavedFavouriteCurrencies({commit}, payload) {
+		commit('setFavouriteCurrencies', payload)
+	},
 };
 
 export default actions;

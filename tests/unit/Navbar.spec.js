@@ -1,10 +1,16 @@
 import Vue from "vue";
-import { shallowMount, createLocalVue } from '@vue/test-utils'
-import Navbar from "@/components/Navbar";
 import Vuetify from 'vuetify'
+import VueRouter from "vue-router";
+
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+
+import Navbar from "@/components/Navbar";
 
 const localVue = createLocalVue()
+const router = new VueRouter()
+
 Vue.use(Vuetify)
+localVue.use(VueRouter)
 
 describe('[NAVBAR]', () => {
 	let vuetify;
@@ -17,8 +23,9 @@ describe('[NAVBAR]', () => {
 		const wrapper = shallowMount(Navbar, {
 			localVue,
 			vuetify,
+			router
 		})
-		expect(wrapper.html()).toMatchSnapshot()
+		expect(wrapper).toMatchSnapshot()
 	})
 
 	it('Should render app name', () => {
@@ -26,6 +33,7 @@ describe('[NAVBAR]', () => {
 		const wrapper = shallowMount(Navbar, {
 			localVue,
 			vuetify,
+			router
 		})
 		expect(wrapper.text()).toMatch(name)
 	})

@@ -5,16 +5,16 @@ exports[`[NAVBAR] Should render component 1`] = `
   <v-app-bar-stub color="deep-purple accent-4" dark="true" tag="header" dense="true" extensionheight="48" src="" value="true" class="mb-16">
     <v-toolbar-title-stub>NBP Course Check</v-toolbar-title-stub>
     <v-spacer-stub></v-spacer-stub>
-    <router-link to="/">
+    <router-link-stub to="/" tag="a" ariacurrentvalue="page" event="click">
       <div class="my-2 mx-2">
         <v-btn-stub color="primary" tag="button" activeclass="" small="true" type="button">All</v-btn-stub>
       </div>
-    </router-link>
-    <router-link to="/favourite">
+    </router-link-stub>
+    <router-link-stub to="/favourite" tag="a" ariacurrentvalue="page" event="click">
       <div class="my-2 mx-2">
         <v-btn-stub color="pink" tag="button" activeclass="" small="true" type="button">Favs</v-btn-stub>
       </div>
-    </router-link>
+    </router-link-stub>
   </v-app-bar-stub>
 </div>
 `;

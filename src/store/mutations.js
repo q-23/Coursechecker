@@ -10,6 +10,9 @@ const mutations = {
 	removeAllFavouriteCurrencies(state) {
 		state.favouriteCurrencies = []
 	},
+	setFavouriteCurrencies(state, savedCurrencies) {
+		state.favouriteCurrencies = savedCurrencies
+	},
 	addCurrenciesCourses(state, courses) {
 		state.currenciesCourses = courses
 	}

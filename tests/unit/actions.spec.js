@@ -46,6 +46,12 @@ describe('[ACTIONS]', () => {
 		expect(state.favouriteCurrencies.length).toBe(0);
 	});
 
+	it('Should set saved favourite currencies',  () => {
+		mutations.setFavouriteCurrencies(state, ['A', 'B', 'C'])
+		expect(state.favouriteCurrencies.length).toBe(3);
+		expect(state.favouriteCurrencies.includes('A')).toBeTruthy();
+	});
+
 	it('Should add all currencies courses',  () => {
 		mutations.addCurrenciesCourses(state, [{currency: 'USD', course: 23}, {currency: 'PLN', course: 12}]);
 		expect(state.currenciesCourses.length).toBe(2);
