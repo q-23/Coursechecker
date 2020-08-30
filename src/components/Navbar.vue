@@ -4,6 +4,7 @@
         color="deep-purple accent-4"
         dense
         dark
+        class="mb-16"
     >
       <v-app-bar-nav-icon/>
       <v-toolbar-title>NBP Course Check</v-toolbar-title>
