@@ -3,9 +3,18 @@
 exports[`[NAVBAR] Should render component 1`] = `
 <div>
   <v-app-bar-stub color="deep-purple accent-4" dark="true" tag="header" dense="true" extensionheight="48" src="" value="true" class="mb-16">
-    <v-app-bar-nav-icon-stub></v-app-bar-nav-icon-stub>
     <v-toolbar-title-stub>NBP Course Check</v-toolbar-title-stub>
     <v-spacer-stub></v-spacer-stub>
+    <router-link to="/">
+      <div class="my-2 mx-2">
+        <v-btn-stub color="primary" tag="button" activeclass="" small="true" type="button">All</v-btn-stub>
+      </div>
+    </router-link>
+    <router-link to="/favourite">
+      <div class="my-2 mx-2">
+        <v-btn-stub color="pink" tag="button" activeclass="" small="true" type="button">Favs</v-btn-stub>
+      </div>
+    </router-link>
   </v-app-bar-stub>
 </div>
 `;

@@ -4,14 +4,30 @@
       outlined
   >
     <blockquote class="blockquote">Your favourite courses:</blockquote>
+    <v-btn
+        v-if="coursesToDisplay.length"
+        @click="setRemoveAll"
+        color="red darken-3"
+        class="mx-1"
+        absolute
+        small
+        right
+        dark
+        top
+        fab
+    >
+      <v-icon dark>mdi-close-circle</v-icon>
+    </v-btn>
     <CourseTable
-        favourite_courses
-        :courses="this.coursesToDisplay"
         @trigger-modal="this.setCodeToDelete"
+        :courses="this.coursesToDisplay"
+        favourite_courses
     />
     <Modal
+        @handle-remove="this.handleRemove"
+        :is_remove_all="this.isRemoveAll"
+        @close-modal="closeModal"
         :open="this.isModalOpen"
-        @remove-favourite="this.triggerModal"
     />
   </v-card>
 </template>
@@ -24,7 +40,8 @@ export default {
   data() {
     return {
       codeToDelete: '',
-      isModalOpen: false
+      isModalOpen: false,
+      isRemoveAll: false
     }
   },
   components: {
@@ -39,12 +56,24 @@ export default {
     }
   },
   methods: {
-    triggerModal () {
-      this.$store.dispatch('removeFavouriteCurrency', this.codeToDelete);
-      this.isModalOpen = false;
+    handleRemove() {
+      if (this.isRemoveAll) {
+        this.$store.dispatch('removeAllFavouriteCurrencies');
+      } else {
+        this.$store.dispatch('removeFavouriteCurrency', this.codeToDelete);
+      }
+      this.closeModal();
     },
     setCodeToDelete (code) {
       this.codeToDelete = code;
+    },
+    setRemoveAll () {
+      this.isRemoveAll = true;
+      this.isModalOpen = true;
+    },
+    closeModal () {
+      this.isModalOpen = false;
+      this.isRemoveAll = false;
     }
   },
   computed: {

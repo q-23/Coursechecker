@@ -2,7 +2,7 @@
 
 exports[`[COURSE TABLE] Should render component 1`] = `
 <v-card-stub loaderheight="4" tag="div" outlined="true" class="mx-auto my-auto">
-  <v-data-table-stub mobilebreakpoint="600" items="[object Object],[object Object]" options="[object Object]" sortby="" sortdesc="" customsort="function sortItems(items, sortBy, sortDesc, locale, customSorters) {
+  <v-data-table-stub mobilebreakpoint="600" items="" options="[object Object]" sortby="" sortdesc="" customsort="function sortItems(items, sortBy, sortDesc, locale, customSorters) {
   if (sortBy === null || !sortBy.length) return items;
   var stringCollator = new Intl.Collator(locale, {
     sensitivity: 'accent',

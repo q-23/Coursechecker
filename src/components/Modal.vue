@@ -4,12 +4,15 @@
       <v-card>
         <v-card-title class="headline">Are you sure?</v-card-title>
         <v-card-text>
-          This action will delete selected currency from your favourites list. Are you sure?
+          {{this.is_remove_all ?
+            'This action will delete all of your favourite currencies. Are you sure?' :
+            'This action will delete selected currency from your favourites list. Are you sure?'
+          }}
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false">Cancel</v-btn>
-          <v-btn color="green darken-1" text @click="this.removeFavourite">Delete</v-btn>
+          <v-btn color="green darken-1" text @click="this.handleCloseModal">Cancel</v-btn>
+          <v-btn color="red darken-1" text @click="this.handleRemove">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -18,26 +21,24 @@
 
 <script>
 export default {
-  data () {
-    return {
-      dialog: false,
-    }
-  },
   props: {
-    open: Boolean
+    open: Boolean,
+    is_remove_all: Boolean
   },
   methods: {
-    removeFavourite() {
-        this.$emit('remove-favourite');
-        this.dialog = false;
-      }
+    // removeFavourite() {
+    //   this.$emit('remove-favourite');
+    // },
+    // removeAll() {
+    //   console.log('all')
+    //   this.$emit('remove-all');
+    // },
+    handleRemove() {
+      this.$emit('handle-remove');
     },
-  mounted() {
-    console.log(this.isModalOpen)
+    handleCloseModal() {
+      this.$emit('close-modal');
+    }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

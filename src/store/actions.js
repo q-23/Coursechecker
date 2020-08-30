@@ -1,15 +1,15 @@
 const actions = {
-	addCurrenciesCourses({commit}, payload){
+	addCurrenciesCourses({commit}, payload) {
 		commit('addCurrenciesCourses', payload)
 	},
-	addFavouriteCurrency({commit}, payload){
+	addFavouriteCurrency({commit}, payload) {
 		commit('addFavouriteCurrency', payload)
 	},
-	removeFavouriteCurrency({commit}, payload){
+	removeFavouriteCurrency({commit}, payload) {
 		commit('removeFavouriteCurrency', payload)
 	},
-	removeAllFavouriteCurrencies({commit}){
-		commit('removeFavouriteCurrency')
+	removeAllFavouriteCurrencies({commit}) {
+		commit('removeAllFavouriteCurrencies')
 	},
 };
 
