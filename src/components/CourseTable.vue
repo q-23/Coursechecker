@@ -14,7 +14,7 @@
           <td>{{row.item.currency}}</td>
           <td>{{row.item.mid}}</td>
           <td>
-            <v-btn class="mx-10" fab dark small color="pink" @click="removeFromFavourites(row.item.code)" v-if="favourite_courses">
+            <v-btn class="mx-10" fab dark small color="pink" @click="deleteFromFavourites(row.item.code)" v-if="favourite_courses">
               <v-icon dark>mdi-heart-remove</v-icon>
             </v-btn>
             <v-btn class="mx-6" fab dark small color="pink" @click="addToFavourites(row.item.code)" v-else>
@@ -50,8 +50,8 @@ export default {
     addToFavourites(code) {
       this.$store.dispatch('addFavouriteCurrency', code)
     },
-    removeFromFavourites(code) {
-      this.$store.dispatch('removeFavouriteCurrency', code)
+    deleteFromFavourites(code) {
+      this.$emit('trigger-modal', code)
     }
   }
 }
